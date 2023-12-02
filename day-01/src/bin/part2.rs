@@ -3,25 +3,34 @@ use std::fs::File;
 use std::collections::HashMap;
 
 fn main() {
-    let spelled: HashMap<&str, char> = HashMap::from([
-        ("one", '1'),
-        ("two", '2'),
-        ("three", '3'),
-        ("four", '4'),
-        ("five", '5'),
-        ("six", '6'),
-        ("seven", '7'),
-        ("eight", '8'),
-        ("nine", '9')
-    ]);
+    let spelled = [
+        ("twone", "21"),
+        ("eightwo", "82"),
+        ("nineight", "98"),
+        ("oneight", "18"),
+        ("threeight", "38"),
+        ("fiveight", "58"),
+        ("sevenine", "79"),
+        ("one", "1"),
+        ("two", "2"),
+        ("three", "3"),
+        ("four", "4"),
+        ("five", "5"),
+        ("six", "6"),
+        ("seven", "7"),
+        ("eight", "8"),
+        ("nine", "9"),
+    ];
     let reader = BufReader::new(File::open("/home/tegues/advent-of-code-2023/day-01/src/bin/input2.txt").expect("File not found"));
-    let mut strings: Vec<String> = reader.lines().map(|l| l.expect("Could not parse line")).collect();
+    let strings: Vec<String> = reader.lines().map(|l| l.expect("Could not parse line")).collect();
     let mut correct_list = Vec::new();
     let mut tmp = String::new();
     for s in &strings {
         tmp = s.clone();
         for (number, value) in &spelled {
-            tmp = tmp.replace(*number, &value.to_string());
+            if s.contains(number) {
+                tmp = tmp.replace(*number, &value.to_string());
+            }   
         }
         correct_list.push(tmp.clone());
     }
