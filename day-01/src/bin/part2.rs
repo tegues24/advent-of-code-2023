@@ -1,6 +1,5 @@
 use std::io::{BufReader, BufRead};
 use std::fs::File;
-use std::collections::HashMap;
 
 fn main() {
     let spelled = [
