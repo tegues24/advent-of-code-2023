@@ -1,6 +1,6 @@
 # Advent of code 2023
 Repo includes the exercises for advent of code. Exercises solved:
- - [ ] Dec 1
+ - [x] Dec 1
  - [ ] Dec 2
  - [ ] Dec 3
  - [ ] Dec 4
